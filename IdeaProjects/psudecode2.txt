@@ -1,0 +1,82 @@
+problem 1: 
+
+Module Main
+	Declare String name
+	Declare purchase_amt 
+	Declare Integer tax_code 
+	Declare sales_tax
+	Declare total
+
+
+
+	Display "Enter the customer's name: "
+	Input name
+	Display "Enter the purchase amount: "
+	Input purchase_amt
+	Display "Enter the tax code. Must be an integer between 0 and 3: "
+	Input tax_code
+
+
+
+	// calculate sales tax depending on given code use do while loop 
+	Do:
+		If(tax_code == 0) Then
+			Set sales_tax = 0.0
+		Else if(tax_code == 1)
+			Set sales_tax = 0.03
+		Else if(tax_code == 2)
+			Set sales_tax = 0.05
+		Else if(tax_code == 3)
+			Set sales_tax = 0.07
+		Else
+			Print "Please choose a number between 0 and 3."
+	while (tax_code < 0 || tax_code > 3) // condition		
+
+
+	// calculating total cost
+	Set total = purchase_amt * (1 + sales_tax)
+
+	// display output
+	Display "The customer's name is ", name
+	Display "The purchase amount is ", purchase_amt
+	Display "The sales tax is ", sales_tax * 100, " %."
+	Display "The total amount due is ", total
+End Main
+
+			Problem 2:	
+			
+Module Main
+	// declare
+	Declare Integer employeeNum
+	Declare  payRate
+	Declare  hrWorked
+	Constant max_hrly_rate = 25.00
+	Constant  max_hr_allowed = 60
+	Declare Real wklyPay
+	
+	// display/input values
+	Display "Please enter the employee's number: "
+	Input employeeNum
+	Display "Please enter the employee's pay rate: "
+	Input payRate
+	Display "Please enter the number of hours worked in the week: "
+	Input hrWorked
+
+
+
+	// validation
+	If(payRate <= max_hrly_rate && hrWorked <= max_hr_allowed) Then 					
+		// calculate weekly pay
+		If(hrWorked <= 35) Then
+			Set wklyPay = hrWorked * payRate
+		Else
+			Display "The weekly pay for recorded hours of ", hrWorked, " is $", wklyPay
+	
+	Else																				
+		Display "ERROR: The values you entered is out of range."
+		
+
+	Display "The employee's number is ", employeeNum
+	Display "The pay rate is ", payRate
+	Display "The number of hours worked in a week is ", hrWorked
+End Main
